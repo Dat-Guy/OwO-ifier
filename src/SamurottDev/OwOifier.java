@@ -11,7 +11,7 @@ public class OwOifier extends JPanel implements ActionListener {
     protected static JTextArea output;
 
     public OwOifier(){
-        super(new FlowLayout());
+        super(new GridBagLayout());
         
         JPanel subPanel = new JPanel();
         JLabel label = new JLabel("Text to OwO: ");
@@ -26,11 +26,20 @@ public class OwOifier extends JPanel implements ActionListener {
     
         output = new JTextArea(20,60);
         output.setLineWrap(true);
-        output.setEditable(false);
-    
-        add(output);
         
-        add(subPanel);
+        GridBagConstraints c = new GridBagConstraints();
+        
+        c.gridwidth = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.0;
+        c.gridx = 0;
+        c.gridy = 0;
+        add(output, c);
+        
+        c.gridwidth = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.0;
+        c.gridx = 0;
+        c.gridy = 1;
+        add(subPanel, c);
     }
     
     public static void main(String[] args) {
@@ -56,12 +65,8 @@ public class OwOifier extends JPanel implements ActionListener {
     
     public void actionPerformed(ActionEvent evt) {
         String text = input.getText();
-        output.append(Owoify(text) + "\n");
+        output.setText(Owoify(text));
         input.selectAll();
-        
-        //Make sure the new text is visible, even if there
-        //was a selection in the text area.
-        output.setCaretPosition(output.getDocument().getLength());
     }
     
     private static String Owoify(String toOwo){
