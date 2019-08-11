@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="OwO-ifier:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/OwO_ifier_jar</output-path>
-    <root id="archive" name="OwO-ifier.jar">
-      <element id="module-output" name="OwO-ifier" />
-    </root>
-  </artifact>
-</component>
